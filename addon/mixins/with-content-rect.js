@@ -35,14 +35,14 @@ export default Mixin.create({
   contentRect: null,
 
   didInsertElement() {
-    this._super.apply(...arguments);
+    this._super(...arguments);
     this._resizeObserver = new ResizeObserver(this.runloopAwareMeasure)
     this._resizeObserver.observe(this.element);
     this.runloopAwareMeasure();
   },
 
   willDestroyElement() {
-    this._super.apply(...arguments);
+    this._super(...arguments);
     this._resizeObserver.disconnect(this.element);
   },
 
